@@ -14,7 +14,15 @@ return new class extends Migration
      */
     public function up()
     {
-        
+        Schema::create('movies', function(BluePrint $table){
+            $table->id();
+            $table->string('title');
+            $table->string('original_title');
+            $table->date('date_release');
+            $table->string('language');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropifExists('movies');
     }
 };
